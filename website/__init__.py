@@ -19,9 +19,7 @@ def create_app():
 
     from .models import User, Note
 
-    return app
+    with app.app_context():
+        db.create_all()
 
-def create_database(app)
-    if not path.exists('Flask-App/' + DB_NAME):
-        db.create_all(app = app)
-        print('Created Database!')
+    return app
